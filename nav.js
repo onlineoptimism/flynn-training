@@ -10,7 +10,7 @@
       href: 'index.html',
       number: 'Start',
       title: 'Course Overview',
-      completable: false
+      completable: true
     },
     {
       id: 'module-0',
@@ -112,7 +112,7 @@
         '<div class="progress-text">' + completed + ' of ' + completable.length + ' modules complete</div>' +
       '</div>' +
       '<ul class="nav-modules">' + moduleItems + '</ul>' +
-      '<div class="nav-footer">Online Optimism &copy; 2025</div>';
+      '<div class="nav-footer">Online Optimism &copy; 2026</div>';
 
     // Wire up mobile toggle (may already be done, safe to re-attach via once)
     var toggle = document.getElementById('nav-toggle');

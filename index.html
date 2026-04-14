@@ -142,7 +142,6 @@
             <li>Walkthroughs specific to your department — Content, Social, Paid Ads, Creative, Web, New Business, Growth, Video, and AE</li>
             <li>Step-by-step instructions for deploying a live website to Cloudflare Pages</li>
             <li>A finished project on your own OO subdomain that you can share with the team</li>
-            <li>Video scripts for each section so you can record your own walkthroughs</li>
           </ul>
         </div>
       </div>
@@ -190,11 +189,11 @@
       <!-- Intro video -->
       <div style="max-width:1040px;margin:0 auto;padding:2.5rem 2.5rem 0;">
         <h2 style="font-family:'Roboto Mono',monospace;font-weight:700;text-transform:uppercase;color:var(--deep-green);font-size:1.1rem;margin-bottom:1rem;">Course Intro Video</h2>
-        <div style="border-radius:6px;overflow:hidden;border:4px solid var(--black);box-shadow:-8px 8px 0px var(--black);">
+        <div style="aspect-ratio:16/9;border-radius:6px;overflow:hidden;border:4px solid var(--black);box-shadow:-8px 8px 0px var(--black);">
           <iframe
             src="https://drive.google.com/file/d/1ot6_Uq8hKcT6OlydPdB8QEfvobFo2TYS/preview"
             width="100%"
-            height="420"
+            height="100%"
             allow="autoplay"
             allowfullscreen
             frameborder="0"
@@ -208,7 +207,7 @@
         <p style="font-size:1.05rem;color:#444;margin-bottom:1.5rem;">
           Ready? Start with Module 0 — it's a quick one, and sets up everything that follows.
         </p>
-        <a href="module-0.html" class="start-btn">Start Module 0 →</a>
+        <a href="module-0.html" class="start-btn" onclick="try{localStorage.setItem('oo-course-index','complete')}catch(e){}">Start Module 0 →</a>
       </div>
 
     </main>
