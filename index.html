@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OO AI Training — Claude Tools Course</title>
+  <meta name="description" content="Online Optimism's internal training course for Claude Chat, Claude Cowork, and Claude Code." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S&family=Roboto:wght@400;500&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .home-intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    @media (max-width: 600px) {
+      .home-intro-grid { grid-template-columns: 1fr; }
+    }
+    .what-youll-get {
+      background: var(--deep-green);
+      color: var(--white);
+      padding: 2.5rem 2.5rem 3rem;
+    }
+    .what-youll-get h2 { color: var(--grello); margin-bottom: 1.25rem; }
+    .what-youll-get li { color: rgba(255,255,255,0.88); margin-bottom: 0.65rem; }
+    .what-youll-get li::marker { color: var(--bright-green); }
+    .tools-trio {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      padding: 2.5rem 2.5rem 1rem;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    @media (max-width: 700px) {
+      .tools-trio { grid-template-columns: 1fr; padding: 1.5rem 1.25rem 0.5rem; }
+    }
+    .tool-card {
+      background: var(--white);
+      border: var(--card-border);
+      border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow);
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .tool-card .tool-emoji { font-size: 2rem; display: block; margin-bottom: 0.75rem; }
+    .tool-card h3 { color: var(--deep-green); font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .tool-card p { font-size: 0.85rem; color: #444; margin: 0; line-height: 1.55; }
+    .start-btn {
+      display: inline-block;
+      background: var(--bright-green);
+      color: var(--black);
+      text-decoration: none;
+      padding: 1rem 2.5rem;
+      border: 4px solid var(--black);
+      border-radius: var(--card-radius);
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      box-shadow: -6px 6px 0px var(--black);
+      transition: all 0.15s ease;
+      letter-spacing: 0.05em;
+    }
+    .start-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: -8px 8px 0px var(--black);
+      color: var(--black);
+    }
+    .cta-section {
+      padding: 3rem 2.5rem 5rem;
+      text-align: center;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    .course-meta {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+    }
+    .course-meta span { display: flex; align-items: center; gap: 0.4rem; }
+  </style>
+</head>
+<body>
+
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open navigation">☰</button>
+  <div class="nav-overlay" id="nav-overlay"></div>
+
+  <div class="page-wrapper">
+    <nav id="main-nav" aria-label="Course navigation"></nav>
+
+    <main class="main-content">
+
+      <!-- Hero -->
+      <div class="home-hero">
+        <div class="module-eyebrow">Online Optimism Internal Training</div>
+        <h1>Welcome to the AI Tools Course</h1>
+        <span class="hero-accent">From chat to code — let's get you up to speed.</span>
+        <p>
+          This course covers the three Claude tools we use at OO: Claude Chat, Claude Cowork, and Claude Code.
+          By the end, you'll know which one to reach for, how to use it for your specific role, and you'll have built
+          and deployed something real. 🎉
+        </p>
+        <div class="course-meta">
+          <span>📚 7 modules</span>
+          <span>⏱ Self-paced</span>
+          <span>🛠 Hands-on exercises</span>
+          <span>🚀 Ends with a live deployment</span>
+        </div>
+      </div>
+
+      <!-- The three tools -->
+      <div class="tools-trio">
+        <div class="tool-card">
+          <span class="tool-emoji">💬</span>
+          <h3>Claude Chat</h3>
+          <p>The conversational interface you probably already use. Great for drafts, questions, and quick tasks.</p>
+        </div>
+        <div class="tool-card">
+          <span class="tool-emoji">🗂️</span>
+          <h3>Claude Cowork</h3>
+          <p>A desktop app that opens your actual files and works through multi-step tasks. No terminal needed.</p>
+        </div>
+        <div class="tool-card">
+          <span class="tool-emoji">⚡</span>
+          <h3>Claude Code</h3>
+          <p>Builds and deploys real things — tools, sites, audits — with persistent memory and GitHub integration.</p>
+        </div>
+      </div>
+
+      <!-- What you'll get -->
+      <div class="what-youll-get">
+        <div style="max-width:860px;margin:0 auto;">
+          <h2>What you'll get out of this</h2>
+          <ul>
+            <li>A clear mental model for when to use each tool (and when NOT to)</li>
+            <li>Walkthroughs specific to your department — Content, Social, Paid Ads, Creative, Web, New Business, Growth, Video, and AE</li>
+            <li>Step-by-step instructions for deploying a live website to Cloudflare Pages</li>
+            <li>A finished project on your own OO subdomain that you can share with the team</li>
+            <li>Video scripts for each section so you can record your own walkthroughs</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Module Cards -->
+      <div class="module-grid" id="module-grid">
+        <a class="module-card" href="module-0.html">
+          <div class="module-card-number">Module 0</div>
+          <h3>Welcome to the AI Tools Family</h3>
+          <p>What this course covers, the difference between the three tools, and who should use what.</p>
+          <div class="card-status" id="status-module-0">○ Not started</div>
+        </a>
+        <a class="module-card" href="module-1.html">
+          <div class="module-card-number">Module 1</div>
+          <h3>Claude Chat</h3>
+          <p>When the conversational interface is exactly the right tool, and OO-specific examples for every use case.</p>
+          <div class="card-status" id="status-module-1">○ Not started</div>
+        </a>
+        <a class="module-card" href="module-2.html">
+          <div class="module-card-number">Module 2</div>
+          <h3>Meet Claude Cowork</h3>
+          <p>Department-by-department walkthroughs for Content, Social, Paid Ads, Creative, Web, New Business, Growth, Video, and AE.</p>
+          <div class="card-status" id="status-module-2">○ Not started</div>
+        </a>
+        <a class="module-card" href="module-3.html">
+          <div class="module-card-number">Module 3</div>
+          <h3>Meet Claude Code</h3>
+          <p>Less scary than it sounds. This is where you build real things — tools, pages, and deployable projects.</p>
+          <div class="card-status" id="status-module-3">○ Not started</div>
+        </a>
+        <a class="module-card" href="module-3-1.html">
+          <div class="module-card-number">Module 3.1</div>
+          <h3>GitHub + Cloudflare Deploy</h3>
+          <p>Step-by-step: from a blank folder to a live website at a real URL. No prior experience required.</p>
+          <div class="card-status" id="status-module-3-1">○ Not started</div>
+        </a>
+        <a class="module-card" href="module-4.html">
+          <div class="module-card-number">Module 4</div>
+          <h3>Final Project</h3>
+          <p>Build something real, deploy it to your own OO subdomain, and share it in Slack. You've got this. 🚀</p>
+          <div class="card-status" id="status-module-4">○ Not started</div>
+        </a>
+      </div>
+
+      <!-- Intro video -->
+      <div style="max-width:1040px;margin:0 auto;padding:2.5rem 2.5rem 0;">
+        <h2 style="font-family:'Roboto Mono',monospace;font-weight:700;text-transform:uppercase;color:var(--deep-green);font-size:1.1rem;margin-bottom:1rem;">Course Intro Video</h2>
+        <div style="border-radius:6px;overflow:hidden;border:4px solid var(--black);box-shadow:-8px 8px 0px var(--black);">
+          <iframe
+            src="https://drive.google.com/file/d/1ot6_Uq8hKcT6OlydPdB8QEfvobFo2TYS/preview"
+            width="100%"
+            height="420"
+            allow="autoplay"
+            allowfullscreen
+            frameborder="0"
+            style="display:block;"
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-section">
+        <p style="font-size:1.05rem;color:#444;margin-bottom:1.5rem;">
+          Ready? Start with Module 0 — it's a quick one, and sets up everything that follows.
+        </p>
+        <a href="module-0.html" class="start-btn">Start Module 0 →</a>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="nav.js"></script>
+  <script src="progress.js"></script>
+  <script>
+    // Update module card statuses from localStorage
+    var moduleIds = ['module-0', 'module-1', 'module-2', 'module-3', 'module-3-1', 'module-4'];
+    moduleIds.forEach(function (id) {
+      var el = document.getElementById('status-' + id);
+      if (!el) return;
+      try {
+        if (localStorage.getItem('oo-course-' + id) === 'complete') {
+          el.textContent = '✓ Complete';
+          el.classList.add('done');
+        }
+      } catch (e) {}
+    });
+  </script>
+
+</body>
+</html>

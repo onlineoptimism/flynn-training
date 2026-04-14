@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 1: Claude Chat — OO AI Training</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S&family=Roboto:wght@400;500&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .example-prompt {
+      background: var(--white);
+      border: 2px solid var(--black);
+      border-radius: 6px;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+      position: relative;
+    }
+    .example-prompt-label {
+      font-family: var(--font-heading);
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      color: var(--bright-green);
+      background: var(--deep-green);
+      display: inline-block;
+      padding: 0.18rem 0.5rem;
+      border-radius: 3px;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.04em;
+    }
+    .example-prompt-text {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: #222;
+      border-left: 3px solid var(--bright-green);
+      padding-left: 0.85rem;
+      margin-bottom: 0.85rem;
+    }
+    .example-why {
+      font-size: 0.82rem;
+      color: #666;
+      font-style: italic;
+    }
+    .prompt-tips {
+      background: var(--deep-green);
+      color: var(--white);
+      border: var(--card-border);
+      border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .prompt-tips h3 { color: var(--grello); margin-bottom: 1rem; }
+    .prompt-tips li { color: rgba(255,255,255,0.88); margin-bottom: 0.65rem; }
+    .when-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 580px) { .when-grid { grid-template-columns: 1fr; } }
+    .when-card {
+      border: var(--card-border);
+      border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow);
+      padding: 1.25rem;
+    }
+    .when-card.yes { background: var(--white); }
+    .when-card.no { background: var(--grello); }
+    .when-card h4 { font-size: 0.85rem; margin-bottom: 0.75rem; }
+    .when-card.yes h4 { color: var(--deep-green); }
+    .when-card.no h4 { color: #999; }
+    .when-card li { font-size: 0.85rem; line-height: 1.55; }
+  </style>
+</head>
+<body data-module="module-1">
+
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open navigation">☰</button>
+  <div class="nav-overlay" id="nav-overlay"></div>
+
+  <div class="page-wrapper">
+    <nav id="main-nav" aria-label="Course navigation"></nav>
+
+    <main class="main-content">
+
+      <div class="module-header">
+        <div class="module-eyebrow">Module 1</div>
+        <h1>Claude Chat</h1>
+        <p class="subtitle">
+          The one you already know. Let's make sure you're using it well — and getting out of your own way when Cowork or Code would serve you better.
+        </p>
+      </div>
+
+      <div class="content-body">
+
+        <!-- Quick recap -->
+        <div class="section">
+          <h2 class="section-title">A quick recap of the interface</h2>
+          <p>
+            Claude Chat lives at <strong>claude.ai</strong>. It's a browser-based conversation window. You type a message, Claude responds, and you can go back and forth as many times as you want in a single conversation thread.
+          </p>
+          <p>
+            You can attach files (PDFs, images, documents), paste in URLs, and share conversation history with others. If you're using the team plan, your conversations are private to you unless you share them.
+          </p>
+          <div class="callout callout-tip">
+            <strong>Pro move</strong>
+            Claude remembers everything within a single conversation. Start a new chat only when you're starting a genuinely new task — staying in one thread means Claude retains context and you don't have to re-explain yourself.
+          </div>
+        </div>
+
+        <!-- When to use chat -->
+        <div class="section">
+          <h2 class="section-title">When chat is the right tool</h2>
+          <div class="when-grid">
+            <div class="when-card yes">
+              <h4>✓ Chat is great for...</h4>
+              <ul>
+                <li>Quick drafts you can review and send right away</li>
+                <li>Brainstorming and thinking out loud</li>
+                <li>Explaining something you pasted in</li>
+                <li>Answering a client question when you're mobile</li>
+                <li>Rewriting a paragraph until it's right</li>
+                <li>Translating, summarizing, or reformatting text</li>
+                <li>One-off tasks that don't need to be repeated</li>
+              </ul>
+            </div>
+            <div class="when-card no">
+              <h4>✗ Chat gets clunky when...</h4>
+              <ul>
+                <li>You need Claude to read files from your hard drive</li>
+                <li>The task has 5+ steps and you want to walk away</li>
+                <li>You're doing the same thing every week (use Cowork)</li>
+                <li>You want to deploy an actual thing to a URL (use Code)</li>
+                <li>The conversation hits its context limit and Claude "forgets"</li>
+                <li>You need version history or GitHub integration</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- OO-specific examples -->
+        <div class="section">
+          <h2 class="section-title">OO-specific examples</h2>
+          <p>
+            Here are three real situations where Chat is exactly the right call. Each example shows the actual prompt you'd use — not a vague template, a real one.
+          </p>
+
+          <div class="example-prompt">
+            <div class="example-prompt-label">Example: Drafting a proposal section</div>
+            <div class="example-prompt-text">
+              "I'm writing the SEO strategy section of a proposal for [Client Name], a regional orthodontics group with locations in New Orleans and Baton Rouge. Their main goal is more first-patient calls from local search. Write a 3-paragraph section explaining our approach — local SEO, Google Business Profile optimization, and conversion-focused landing pages. Tone should be confident but not salesy. We're trying to win their trust, not close a deal."
+            </div>
+            <p class="example-why">Why chat works: This is a one-shot draft task. You paste it in, review the output, tweak it, and paste it into your doc. Done.</p>
+          </div>
+
+          <div class="example-prompt">
+            <div class="example-prompt-label">Example: Writing a social caption</div>
+            <div class="example-prompt-text">
+              "Write 3 variations of a LinkedIn caption for Online Optimism announcing that we were named a Best Place to Work for the fifth year in a row. Keep it celebratory but not braggy — we want to credit the team, not ourselves. Include 1-2 relevant emojis per caption. No hashtags. Sentence case only."
+            </div>
+            <p class="example-why">Why chat works: Quick creative task, three options to choose from, no files involved. This is Chat's home turf.</p>
+          </div>
+
+          <div class="example-prompt">
+            <div class="example-prompt-label">Example: Answering a client email</div>
+            <div class="example-prompt-text">
+              "Here's an email from a client asking why their Google Ads CPC jumped 40% this month. [Paste the email] They're clearly frustrated. Draft a response that: acknowledges the jump, gives two or three factual explanations (competition, seasonality, Quality Score), and sets up a brief call to walk through our optimization plan. Keep it calm, professional, and not defensive. We value this client relationship."
+            </div>
+            <p class="example-why">Why chat works: You paste the email in, Claude drafts a response with the right tone, you edit and send. No file access needed.</p>
+          </div>
+        </div>
+
+        <!-- Prompt tips -->
+        <div class="prompt-tips">
+          <h3>The 5 things that make a Claude Chat prompt actually work</h3>
+          <ul>
+            <li><strong>Role + goal:</strong> Tell Claude who you are and what you're trying to accomplish. "I'm an AE at a digital marketing agency writing a proposal for a restaurant client."</li>
+            <li><strong>Audience:</strong> Who is this for? A skeptical CMO reads differently than a small business owner who's never worked with an agency.</li>
+            <li><strong>Tone constraints:</strong> "Confident but not salesy," "warm but professional," "casual — this is for Instagram, not LinkedIn."</li>
+            <li><strong>Format:</strong> "3 bullet points," "2 short paragraphs," "a numbered list," "50 words max." Claude writes to whatever container you give it.</li>
+            <li><strong>What NOT to do:</strong> If there's a common version you hate ("don't start with 'Absolutely!'"), say so explicitly. Claude will listen.</li>
+          </ul>
+        </div>
+
+        <!-- Video script -->
+        <div class="video-script-box">
+          <div class="video-script-header">
+            <h3>🎬 Video Script — Module 1 (30–45 sec)</h3>
+            <span class="video-script-tag">Teleprompter-ready</span>
+          </div>
+          <div class="video-script-body">
+            <p class="script-meta">
+              Setting: At your laptop, claude.ai open in the background. Casual and direct.
+            </p>
+            <div class="script-text" id="script-text-mod1">Claude Chat is the one you already know — it's claude.ai, you type, it responds. Super quick, works great on your phone, no setup required.
+
+The key is knowing when to stick with chat and when to upgrade to one of the other tools.
+
+Chat is perfect for anything you can knock out in a single conversation — a draft, a rewrite, a client email response, a social caption. If it fits in a chat window and you're working from copy you can paste in, chat's your move.
+
+Where people get frustrated is using chat for things it's not built for: reading files off your desktop, running a multi-step workflow, or building something that actually has to go live somewhere. That's when Cowork and Code come in — and we'll cover those next.
+
+For now: Module 1 exercise. Try it yourself.</div>
+            <button class="copy-script-btn" onclick="copyToClipboard(document.getElementById('script-text-mod1').textContent, this)">
+              📋 Copy Script
+            </button>
+          </div>
+        </div>
+
+        <!-- Video embed -->
+        <div class="section">
+          <div style="border-radius:6px;overflow:hidden;border:4px solid var(--black);box-shadow:-8px 8px 0px var(--black);">
+            <iframe
+              src="https://drive.google.com/file/d/1gbwsdObEqLU5HpAdKZeFAy5wxPuVLkCE/preview"
+              width="100%"
+              height="420"
+              allow="autoplay"
+              allowfullscreen
+              frameborder="0"
+              style="display:block;"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- Interactive prompt exercise -->
+        <div class="interactive-prompt">
+          <div class="interactive-prompt-header">
+            <span class="prompt-emoji">✍️</span>
+            <h3>Exercise: Write a real OO prompt</h3>
+          </div>
+          <div class="interactive-prompt-body">
+            <p class="prompt-instructions">
+              Write a Claude Chat prompt for a task you actually need to do this week (or would realistically need to do). Make it specific to your role at OO. Apply the five-part formula from above: role, audience, tone, format, and what NOT to do.
+            </p>
+            <div class="prompt-context">
+              <strong>Inspiration by role</strong>
+              <strong>Content:</strong> A brief for a 1,500-word blog post on a topic in your current calendar<br>
+              <strong>Social:</strong> Three caption options for a client announcement this week<br>
+              <strong>Paid Ads:</strong> A draft for a Google Ads responsive search ad for a current campaign<br>
+              <strong>AE:</strong> A status update email summarizing last month for a current client<br>
+              <strong>Creative:</strong> Alt text for a batch of images you'd describe to Claude<br>
+              <strong>New Business:</strong> An intro email for a lead in your pipeline right now
+            </div>
+            <textarea
+              class="prompt-textarea"
+              id="mod1-prompt-input"
+              placeholder="Write your prompt here. Be specific — pretend you're actually about to send this to Claude and need it to work..."
+            ></textarea>
+            <br>
+            <button class="prompt-submit-btn" onclick="submitPrompt('mod1-prompt')">
+              Save My Prompt →
+            </button>
+            <div class="prompt-success" id="mod1-prompt-success">
+              ✅ <strong>Saved!</strong> After you finish the course, go try this prompt in Claude Chat and see what you get. Then come back and compare. The prompts you write after Module 2 and 3 are usually way better than the ones you write now — and that's the whole point.
+            </div>
+          </div>
+        </div>
+
+        <!-- Mark Complete -->
+        <div class="module-complete-section">
+          <button class="btn-complete" id="btn-complete" onclick="markComplete('module-1')">
+            Mark Module 1 Complete ✓
+          </button>
+          <div class="complete-message" id="complete-message">
+            Chat: understood. Now let's get into the good stuff — Cowork is up next. 🗂️
+          </div>
+          <div class="next-module-link" id="next-module-link">
+            <a href="module-2.html" class="btn-next">Next: Module 2 — Meet Claude Cowork →</a>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="nav.js"></script>
+  <script src="progress.js"></script>
+
+</body>
+</html>

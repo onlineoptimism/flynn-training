@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 0: Welcome to the AI Tools Family — OO AI Training</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S&family=Roboto:wght@400;500&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .analogy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 650px) {
+      .analogy-grid { grid-template-columns: 1fr; }
+    }
+    .analogy-card {
+      background: var(--white);
+      border: var(--card-border);
+      border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow);
+      padding: 1.35rem;
+    }
+    .analogy-card .tool-label {
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      background: var(--deep-green);
+      color: var(--grello);
+      display: inline-block;
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.04em;
+    }
+    .analogy-card h4 {
+      font-size: 0.9rem;
+      color: var(--deep-green);
+      margin-bottom: 0.5rem;
+    }
+    .analogy-card p { font-size: 0.85rem; color: #444; margin: 0; line-height: 1.55; }
+    .analogy-card .analogy-emoji { font-size: 1.75rem; display: block; margin-bottom: 0.75rem; }
+    .who-uses-what td:first-child { font-weight: 500; white-space: nowrap; }
+    .check { color: var(--bright-green); font-weight: 700; }
+    .no { color: #bbb; }
+  </style>
+</head>
+<body data-module="module-0">
+
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open navigation">☰</button>
+  <div class="nav-overlay" id="nav-overlay"></div>
+
+  <div class="page-wrapper">
+    <nav id="main-nav" aria-label="Course navigation"></nav>
+
+    <main class="main-content">
+
+      <div class="module-header">
+        <div class="module-eyebrow">Module 0</div>
+        <h1>Welcome to the AI Tools Family</h1>
+        <p class="subtitle">
+          Three tools, one Claude. Here's why they're different, which one you should reach for, and why it actually matters for how you work at OO.
+        </p>
+      </div>
+
+      <div class="content-body">
+
+        <!-- What this course covers -->
+        <div class="section">
+          <h2 class="section-title">What this course is — and isn't</h2>
+          <p>
+            This isn't a "here's how AI works" lecture. You don't need to know what a large language model is. You just need to know
+            how to use these tools to do your actual job better.
+          </p>
+          <p>
+            We built this course because OO now has three different Claude-based tools, and it wasn't super obvious which
+            one to use for what. That ambiguity slows people down. So: this course removes the ambiguity.
+          </p>
+          <p>
+            By the end, you'll have real experience with all three tools, department-specific walkthroughs that match your actual work,
+            and a live project deployed to your own OO subdomain. It's hands-on, it's self-paced, and yes — you're going to actually build something. 🛠️
+          </p>
+
+          <div class="callout callout-tip">
+            <strong>How long will this take?</strong>
+            Modules 0–3 are reading + exercises, roughly 20–30 minutes each. Module 3.1 (the deployment module) takes about an hour your first time. Module 4 is however big you want to make your project.
+          </div>
+        </div>
+
+        <!-- The analogy -->
+        <div class="section">
+          <h2 class="section-title">The three tools — a New Orleans analogy</h2>
+          <p>
+            Think about three different ways to experience amazing New Orleans food. Same city, same ingredients, totally different experience:
+          </p>
+
+          <div class="analogy-grid">
+            <div class="analogy-card">
+              <span class="analogy-emoji">☕</span>
+              <div class="tool-label">Claude Chat</div>
+              <h4>Texting your foodie friend</h4>
+              <p>
+                "Hey, where should I eat on Magazine Street?" — quick question, instant answer, totally conversational.
+                Great for one-off tasks, drafts, and thinking things through. You ask, it answers, you move on.
+              </p>
+            </div>
+            <div class="analogy-card">
+              <span class="analogy-emoji">👨‍🍳</span>
+              <div class="tool-label">Claude Cowork</div>
+              <h4>A private chef in your kitchen</h4>
+              <p>
+                They show up at your house, open your fridge, and cook a full multi-course meal with what's actually in there.
+                Cowork opens your actual files, works through multi-step tasks, and remembers what it did last time.
+              </p>
+            </div>
+            <div class="analogy-card">
+              <span class="analogy-emoji">🏗️</span>
+              <div class="tool-label">Claude Code</div>
+              <h4>Building the restaurant</h4>
+              <p>
+                They're not cooking dinner — they're building the kitchen, writing the menu, and when they're done, customers can actually show up.
+                Claude Code builds real things: tools, sites, scripts that get deployed and live at a URL.
+              </p>
+            </div>
+          </div>
+
+          <p>
+            Same Claude brain behind all three. Different interface, different context, different superpowers.
+          </p>
+        </div>
+
+        <!-- How they differ -->
+        <div class="section">
+          <h2 class="section-title">What actually makes them different</h2>
+
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th>Capability</th>
+                <th>Chat</th>
+                <th>Cowork</th>
+                <th>Code</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Conversational Q&A</td>
+                <td class="check">✓ Best</td>
+                <td class="check">✓ Yes</td>
+                <td class="check">✓ Yes</td>
+              </tr>
+              <tr>
+                <td>Open your local files</td>
+                <td class="no">✗ No</td>
+                <td class="check">✓ Yes</td>
+                <td class="check">✓ Yes</td>
+              </tr>
+              <tr>
+                <td>Multi-step task pipelines</td>
+                <td class="no">✗ Limited</td>
+                <td class="check">✓ Best</td>
+                <td class="check">✓ Yes</td>
+              </tr>
+              <tr>
+                <td>Persistent project memory</td>
+                <td class="no">✗ No</td>
+                <td class="check">✓ Per session</td>
+                <td class="check">✓ Full (CLAUDE.md)</td>
+              </tr>
+              <tr>
+                <td>Write &amp; deploy code</td>
+                <td class="no">✗ No</td>
+                <td class="no">✗ Limited</td>
+                <td class="check">✓ Best</td>
+              </tr>
+              <tr>
+                <td>GitHub integration</td>
+                <td class="no">✗ No</td>
+                <td class="no">✗ No</td>
+                <td class="check">✓ Yes</td>
+              </tr>
+              <tr>
+                <td>No setup required</td>
+                <td class="check">✓ Just log in</td>
+                <td class="check">✓ Desktop install</td>
+                <td class="no">⚠ Code tab in Claude Desktop or web</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Who uses what -->
+        <div class="section">
+          <h2 class="section-title">Who should use what — and when</h2>
+
+          <div class="card card-dark" style="margin-bottom:1.25rem;">
+            <h3>Use Claude Chat when...</h3>
+            <ul>
+              <li>You need a quick answer, draft, or idea right now</li>
+              <li>You're working from memory or a pasted document</li>
+              <li>You need it from your phone or without the desktop app</li>
+              <li>The task fits in one or two back-and-forth messages</li>
+            </ul>
+          </div>
+
+          <div class="card card-white" style="margin-bottom:1.25rem;">
+            <h3 style="color:var(--deep-green);">Use Claude Cowork when...</h3>
+            <ul>
+              <li>The task involves files already on your computer (CSV exports, folders of docs, images)</li>
+              <li>You need Claude to do several things in sequence — analyze, then write, then organize</li>
+              <li>You want to walk away and come back to a finished result</li>
+              <li>You're doing a department-specific workflow (content gap analysis, batch captions, Google Ads review)</li>
+            </ul>
+          </div>
+
+          <div class="card card-dark">
+            <h3>Use Claude Code when...</h3>
+            <ul>
+              <li>You want to build something real: a tool, a page, a script</li>
+              <li>You need the result to actually go live at a URL</li>
+              <li>You're working on something that spans multiple files and sessions</li>
+              <li>You want GitHub integration and version history</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Video script -->
+        <div class="video-script-box" id="video-script-mod0">
+          <div class="video-script-header">
+            <h3>🎬 Video Script — Module 0 Intro (30–45 sec)</h3>
+            <span class="video-script-tag">Teleprompter-ready</span>
+          </div>
+          <div class="video-script-body">
+            <p class="script-meta">
+              Setting: Casual, at your laptop. Direct to camera. No editing needed — one take is totally fine.
+            </p>
+            <div class="script-text" id="script-text-mod0">Hey team! Welcome to the OO AI Tools Training course.
+
+If you've ever opened Claude and thought "wait... which one of these am I supposed to be using?" — this course is for you.
+
+We've got three tools now: Claude Chat, which you probably already know; Claude Cowork, which can actually open your files and run through a whole project; and Claude Code, which builds real, deployable things.
+
+Each one has its sweet spot. Once you know which to reach for, it changes everything.
+
+Alright — let's get into it. Module One starts now.</div>
+            <button class="copy-script-btn" onclick="copyToClipboard(document.getElementById('script-text-mod0').textContent, this)">
+              📋 Copy Script
+            </button>
+          </div>
+        </div>
+
+        <!-- Video embed -->
+        <div class="section">
+          <h2 class="section-title">Module intro video</h2>
+          <div style="border-radius:6px;overflow:hidden;border:4px solid var(--black);box-shadow:-8px 8px 0px var(--black);">
+            <iframe
+              src="https://drive.google.com/file/d/1ot6_Uq8hKcT6OlydPdB8QEfvobFo2TYS/preview"
+              width="100%"
+              height="420"
+              allow="autoplay"
+              allowfullscreen
+              frameborder="0"
+              style="display:block;"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- Interactive prompt -->
+        <div class="interactive-prompt">
+          <div class="interactive-prompt-header">
+            <span class="prompt-emoji">🧠</span>
+            <h3>Quick Check: Which Tool Would You Use?</h3>
+          </div>
+          <div class="interactive-prompt-body">
+            <p class="prompt-instructions">
+              For each scenario below, write down which tool you'd use and why. There's no wrong answer — the goal is to get you thinking about this before Module 1.
+            </p>
+            <div class="prompt-context">
+              <strong>Scenarios</strong>
+              1. You need to draft a one-paragraph response to a client email right now.<br>
+              2. You have a folder of 20 blog posts and want to find content gaps.<br>
+              3. You want to build a checklist tool and deploy it to a client subdomain.<br>
+              4. You need to batch-generate 30 social captions from a content calendar spreadsheet.
+            </div>
+            <textarea
+              class="prompt-textarea"
+              id="mod0-check-input"
+              placeholder="Jot your answers here — e.g., 'Scenario 1: Chat, because it's a quick one-off task...'"
+            ></textarea>
+            <br>
+            <button class="prompt-submit-btn" onclick="submitPrompt('mod0-check')">
+              Save My Answers →
+            </button>
+            <div class="prompt-success" id="mod0-check-success">
+              ✅ <strong>Nice work!</strong> Your answers are saved. Here's a quick key: <br>
+              1 → Chat &nbsp;|&nbsp; 2 → Cowork &nbsp;|&nbsp; 3 → Code &nbsp;|&nbsp; 4 → Cowork<br>
+              How'd you do? Even if you got them all, the nuance will make more sense after Module 2 and 3.
+            </div>
+          </div>
+        </div>
+
+        <!-- Mark Complete -->
+        <div class="module-complete-section">
+          <button class="btn-complete" id="btn-complete" onclick="markComplete('module-0')">
+            Mark Module 0 Complete ✓
+          </button>
+          <div class="complete-message" id="complete-message">
+            You're officially an OO AI tools student. On to Module 1! 🎉
+          </div>
+          <div class="next-module-link" id="next-module-link">
+            <a href="module-1.html" class="btn-next">Next: Module 1 — Claude Chat →</a>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="nav.js"></script>
+  <script src="progress.js"></script>
+
+</body>
+</html>
