@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Module 3 — OO AI Training</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S&family=Roboto:wght@400;500&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .use-case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-top: 16px; }
+    .use-case-card {
+      border: 4px solid var(--black); border-radius: 6px; box-shadow: -8px 8px 0px var(--black);
+      padding: 18px; background: var(--white);
+    }
+    .use-case-card .uc-number { font-family: var(--font-heading); font-size: 0.7rem; text-transform: uppercase; color: var(--bright-green); margin-bottom: 6px; }
+    .use-case-card h3 { font-size: 1rem; margin: 0 0 8px; }
+    .step-list { list-style: none; padding: 0; margin: 0; counter-reset: steps; }
+    .step-list li { counter-increment: steps; padding: 10px 0 10px 44px; position: relative; border-bottom: 1px solid #e5e5e5; }
+    .step-list li:last-child { border-bottom: none; }
+    .step-list li::before {
+      content: counter(steps); position: absolute; left: 0; top: 10px;
+      width: 28px; height: 28px; background: var(--deep-green); color: var(--white);
+      font-family: var(--font-heading); font-size: 0.8rem; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; line-height: 1;
+    }
+    .claude-md-box {
+      background: #1a1a1a; color: #e8e8e8; border-radius: 6px; border: 4px solid var(--black);
+      box-shadow: -8px 8px 0px var(--black); padding: 18px 22px; font-family: var(--font-heading);
+      font-size: 0.82rem; line-height: 1.7; margin-top: 14px;
+    }
+    .claude-md-box .comment { color: #6a9955; }
+  </style>
+</head>
+<body data-module="module-3">
+  <button class="nav-toggle" id="nav-toggle">☰</button>
+  <div class="nav-overlay" id="nav-overlay"></div>
+  <div class="page-wrapper">
+    <nav id="main-nav"></nav>
+    <main class="main-content">
+
+      <div class="module-header">
+        <p class="module-eyebrow">Module 3</p>
+        <h1>Claude Code</h1>
+        <p class="subtitle">It sounds like a developer tool. It kind of is. But it's also one of the most powerful things OO has access to right now — and you don't need to write a single line of code to use it.</p>
+      </div>
+
+      <div class="content-body">
+
+        <div class="section">
+          <div style="border-radius:6px;overflow:hidden;border:4px solid var(--black);box-shadow:-8px 8px 0px var(--black);">
+            <iframe src="https://drive.google.com/file/d/1GEbf1BPgUlwmI4EeklCVdXb5cQV7SkBu/preview"
+              width="100%" height="420" allow="autoplay" allowfullscreen frameborder="0" style="display:block;"></iframe>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">What is Claude Code?</h2>
+          <p>Claude Code is a version of Claude that lives inside your file system. Instead of just chatting in a browser window, it can read files, write files, run commands, and build things. Think of it as Claude with hands — it can actually do work, not just describe it.</p>
+          <p>You access it through the <strong>Code tab</strong> in Claude Desktop (the downloadable app) or on the Claude web app. It's the same Claude you already know, just with a lot more superpowers turned on. The "code" part refers to what it can do, not what you need to know.</p>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">How is it Different from Chat or Cowork?</h2>
+          <div class="analogy-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
+            <div class="card card-white">
+              <strong>Claude Chat</strong>
+              <p style="margin:8px 0 0;">Conversation only. Great for ideas, drafts, and questions. Doesn't touch your files or computer.</p>
+            </div>
+            <div class="card card-white">
+              <strong>Claude Cowork</strong>
+              <p style="margin:8px 0 0;">Chat with OO context built in. Best for client work, copy, and agency deliverables.</p>
+            </div>
+            <div class="card card-white" style="background:var(--grello);">
+              <strong>Claude Code</strong>
+              <p style="margin:8px 0 0;">Can read, write, and run files on your computer. Builds real things: websites, reports, automation scripts.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Getting Started</h2>
+          <ul class="step-list">
+            <li>Download <strong>Claude Desktop</strong> from claude.ai/download — it's free with your Anthropic account.</li>
+            <li>Open Claude Desktop and look for the <strong>Code tab</strong> in the top navigation.</li>
+            <li>Create a new project folder on your computer for whatever you want to build.</li>
+            <li>In the Code tab, point Claude at your folder and start describing what you want to make.</li>
+            <li>Claude will read existing files, write new ones, and tell you what commands to run when needed.</li>
+          </ul>
+          <p style="margin-top:16px;">You can also use Claude Code directly from the Claude web app — look for the same Code tab. The web version has slightly fewer local file permissions but works great for most tasks.</p>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">CLAUDE.md — Your Project Briefing File</h2>
+          <p>One of the best features of Claude Code is the <code>CLAUDE.md</code> file. Drop a file with this name into any project folder and Claude Code will read it automatically every time you start a session in that folder. It's how you give Claude standing instructions without repeating yourself.</p>
+          <div class="claude-md-box">
+            <span class="comment"># CLAUDE.md — OO Project Context</span><br><br>
+            This is a marketing website for Acme HVAC.<br>
+            Brand voice: friendly, straightforward, never preachy.<br>
+            Primary color: #E84C1B. Font: Inter.<br>
+            Always use semantic HTML. No inline styles.<br>
+            <span class="comment"># Ask before deleting any existing files.</span>
+          </div>
+          <p style="margin-top:14px;">Think of CLAUDE.md as the brief you'd give a new contractor on day one. Full Anthropic docs at <strong>docs.anthropic.com/claude-code</strong>.</p>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">OO Use Cases</h2>
+          <div class="use-case-grid">
+            <div class="use-case-card">
+              <div class="uc-number">Use Case 01</div>
+              <h3>AI AE Assistant</h3>
+              <p>Claude Code can pull data from multiple sources, summarize client activity, and draft weekly reports — all from a folder of exports.</p>
+            </div>
+            <div class="use-case-card">
+              <div class="uc-number">Use Case 02</div>
+              <h3>SEO Audit Tool</h3>
+              <p>Point it at a client's site structure and a spreadsheet of keywords, and it can generate a structured SEO gap analysis in minutes.</p>
+            </div>
+            <div class="use-case-card">
+              <div class="uc-number">Use Case 03</div>
+              <h3>Subdomain Deploy</h3>
+              <p>Build a client microsite or landing page in plain HTML/CSS, push it to GitHub, and deploy it to a Cloudflare-hosted subdomain — all in one session.</p>
+            </div>
+            <div class="use-case-card">
+              <div class="uc-number">Use Case 04</div>
+              <h3>Social Content Output</h3>
+              <p>Feed it a content calendar and brand guide and it will generate a full month of social post drafts formatted and ready for review.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="interactive-prompt">
+          <div class="interactive-prompt-header">
+            <span class="prompt-emoji">💻</span>
+            <h3>Exercise: Plan your first Claude Code project</h3>
+          </div>
+          <div class="interactive-prompt-body">
+            <p class="prompt-instructions">You don't need to build it yet — just describe it. What's one thing at OO you'd want Claude Code to help you build or automate? Be as specific as you can: what inputs would it use, what would the output look like?</p>
+            <div class="prompt-context">
+              <strong>Examples:</strong> "A script that turns our monthly analytics export into a formatted PDF summary" or "A simple landing page for a client campaign that I can deploy to their subdomain."
+            </div>
+            <textarea class="prompt-textarea" id="mod3-prompt-input" placeholder="Describe your Claude Code project idea here..."></textarea>
+            <button class="prompt-submit-btn" onclick="submitPrompt('mod3-prompt')">Save My Idea →</button>
+            <div class="prompt-success" id="mod3-prompt-success">✅ <strong>Saved!</strong> You'll get to build something like this in the final project.</div>
+          </div>
+        </div>
+
+        <div class="module-complete-section">
+          <button class="btn-complete" id="btn-complete" onclick="markComplete('module-3')">
+            Mark Module 3 Complete ✓
+          </button>
+          <div class="complete-message" id="complete-message">
+            Now let's get practical. Up next: deploying your first project to the web. 🌐
+          </div>
+          <div class="next-module-link" id="next-module-link">
+            <a href="module-3-1.html" class="btn-next">Next: Module 3.1 — GitHub + Cloudflare Deploy →</a>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+  <script src="nav.js"></script>
+  <script src="progress.js"></script>
+</body>
+</html>

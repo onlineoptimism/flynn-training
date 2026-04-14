@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Module 2 — OO AI Training</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S&family=Roboto:wght@400;500&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .dept-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .dept-tab-btn {
+      padding: 8px 14px; font-family: var(--font-heading); font-size: 0.72rem;
+      text-transform: uppercase; background: var(--white); border: 3px solid var(--black);
+      border-radius: 4px; cursor: pointer; transition: background 0.15s, color 0.15s;
+    }
+    .dept-tab-btn:hover { background: var(--grello); }
+    .dept-tab-btn.active { background: var(--deep-green); color: var(--white); }
+    .dept-tab-panel { display: none; }
+    .dept-tab-panel.active { display: block; }
+    .dept-prompt-example {
+      background: var(--grello); border: 3px solid var(--black); border-radius: 6px;
+      padding: 14px 18px; margin-top: 14px; font-size: 0.93rem; font-style: italic;
+    }
+    .dept-prompt-example strong { display: block; font-style: normal; font-family: var(--font-heading); font-size: 0.72rem; text-transform: uppercase; margin-bottom: 6px; color: var(--deep-green); }
+  </style>
+</head>
+<body data-module="module-2">
+  <button class="nav-toggle" id="nav-toggle">☰</button>
+  <div class="nav-overlay" id="nav-overlay"></div>
+  <div class="page-wrapper">
+    <nav id="main-nav"></nav>
+    <main class="main-content">
+
+      <div class="module-header">
+        <p class="module-eyebrow">Module 2</p>
+        <h1>Meet Claude Cowork</h1>
+        <p class="subtitle">Claude Cowork is OO's shared AI workspace — built for teams, not just individuals. Think of it as your always-available creative partner that already knows the OO playbook.</p>
+      </div>
+
+      <div class="content-body">
+
+        <div class="section">
+          <div style="border-radius:6px;overflow:hidden;border:4px solid var(--black);box-shadow:-8px 8px 0px var(--black);">
+            <iframe src="https://drive.google.com/file/d/1eIsmfVJj-GtDWwgIG0DSuUsqWfV8QpgR/preview"
+              width="100%" height="420" allow="autoplay" allowfullscreen frameborder="0" style="display:block;"></iframe>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">What is Claude Cowork?</h2>
+          <p>Claude Cowork lives at <strong>cowork.onlineoptimism.com</strong>. It's a customized version of Claude that has OO's brand guidelines, tone of voice, and service context baked in from the start. That means less setup for you and better outputs right away.</p>
+          <p>Unlike a general-purpose chatbot, Cowork is specifically tuned for agency life — drafting client deliverables, brainstorming campaign ideas, and writing copy that actually sounds like us.</p>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Your Department Walkthrough</h2>
+          <p>Click your department below to see how Cowork fits into your day-to-day work.</p>
+
+          <div class="dept-tabs">
+            <button class="dept-tab-btn active" data-dept="content" onclick="switchDeptTab('content')">Content</button>
+            <button class="dept-tab-btn" data-dept="social" onclick="switchDeptTab('social')">Social</button>
+            <button class="dept-tab-btn" data-dept="paid-ads" onclick="switchDeptTab('paid-ads')">Paid Ads</button>
+            <button class="dept-tab-btn" data-dept="creative" onclick="switchDeptTab('creative')">Creative</button>
+            <button class="dept-tab-btn" data-dept="web-design" onclick="switchDeptTab('web-design')">Web Design</button>
+            <button class="dept-tab-btn" data-dept="new-business" onclick="switchDeptTab('new-business')">New Business</button>
+            <button class="dept-tab-btn" data-dept="growth" onclick="switchDeptTab('growth')">Growth</button>
+            <button class="dept-tab-btn" data-dept="video" onclick="switchDeptTab('video')">Video</button>
+            <button class="dept-tab-btn" data-dept="account-executives" onclick="switchDeptTab('account-executives')">Account Executives</button>
+          </div>
+
+          <div id="dept-content" class="dept-tab-panel active">
+            <p>Content writers use Cowork to kick-start blog drafts, refine headlines, and brainstorm SEO topic clusters. Feed it a keyword and a client brief and it'll give you a solid first draft to work from — not a finished piece, but a great starting point. It's especially handy when you're staring at a blank page at 4pm.</p>
+            <div class="dept-prompt-example"><strong>Example Prompt</strong>"Write three headline options for a blog post about HVAC maintenance tips for New Orleans homeowners. Tone: friendly, practical, no jargon."</div>
+          </div>
+
+          <div id="dept-social" class="dept-tab-panel">
+            <p>Social teams use Cowork to batch-write caption variations, adapt a single idea across platforms, and punch up flat copy. Give it your campaign theme and let it riff — you'll always want to add your own voice, but it gets you 80% there fast. Great for those "post goes live in 30 minutes" moments.</p>
+            <div class="dept-prompt-example"><strong>Example Prompt</strong>"Write 3 Instagram captions for a local restaurant client celebrating their 10th anniversary. Tone: warm, celebratory. Include a call to action to make a reservation."</div>
+          </div>
+
+          <div id="dept-paid-ads" class="dept-tab-panel">
+            <p>Paid Ads teams lean on Cowork for ad copy variations, A/B test idea generation, and audience messaging frameworks. It can crank out 10 headline variants while you focus on strategy and bidding logic. Just make sure to review everything for compliance before it goes live.</p>
+            <div class="dept-prompt-example"><strong>Example Prompt</strong>"Write 5 Google Ads headlines (30 chars max each) for a personal injury law firm targeting people searching 'car accident lawyer New Orleans'."</div>
+          </div>
+
+          <div id="dept-creative" class="dept-tab-panel">
+            <p>Creative uses Cowork to quickly sketch out concept directions, write art-direction briefs, and generate mood-board descriptions. It won't replace your design eye, but it can help articulate a vague creative gut feeling into a brief someone can actually execute. Think of it as a creative director that never gets tired of ideation.</p>
+            <div class="dept-prompt-example"><strong>Example Prompt</strong>"Describe a visual concept for a local coffee brand rebrand targeting young professionals. Include color palette mood, photography style, and typography direction."</div>
+          </div>
+
+          <div id="dept-web-design" class="dept-tab-panel">
+            <p>Web designers use Cowork to draft UX copy, write microcopy for buttons and error states, and generate content for placeholder pages. It's also great for writing structured page briefs before a build kicks off. Less time chasing lorem ipsum, more time designing.</p>
+            <div class="dept-prompt-example"><strong>Example Prompt</strong>"Write the homepage hero headline, subheadline, and CTA button text for a New Orleans wedding photographer. Brand vibe: romantic, elegant, modern."</div>
+          </div>
+
+          <div id="dept-new-business" class="dept-tab-panel">
+            <p>New Business uses Cowork to research prospect industries, draft cold outreach templates, and outline proposal sections fast. It helps you walk into a pitch meeting sounding like you've known a client's industry for years. Always fact-check specifics before sending anything externally.</p>
+            <div class="dept-prompt-example"><strong>Example Prompt</strong>"Summarize the top 3 marketing challenges faced by regional urgent care chains and suggest how a digital marketing agency could address each one."</div>
+          </div>
+
+          <div id="dept-growth" class="dept-tab-panel">
+            <p>Growth teams use Cowork to structure reports, draft client-facing insights summaries, and brainstorm optimization hypotheses. It can help you turn a spreadsheet of numbers into a narrative a client actually understands. Pair it with your own analysis and you've got a compelling story to tell.</p>
+            <div class="dept-prompt-example"><strong>Example Prompt</strong>"I have a client whose Google Ads CTR dropped 15% last month. Write a 3-bullet client summary explaining possible reasons and next steps. Tone: confident, not alarming."</div>
+          </div>
+
+          <div id="dept-video" class="dept-tab-panel">
+            <p>Video teams use Cowork to write scripts, develop shot lists, and draft interview questions for client testimonial shoots. It takes your brief and turns it into a structured script you can hand off or read from. Still needs a human polish pass, but it dramatically cuts pre-production time.</p>
+            <div class="dept-prompt-example"><strong>Example Prompt</strong>"Write a 60-second video script for a local pediatric dentist welcoming new patients. Tone: warm, reassuring, kid-friendly. Include a call to action to book online."</div>
+          </div>
+
+          <div id="dept-account-executives" class="dept-tab-panel">
+            <p>AEs use Cowork to draft status emails, prep for client calls, and translate strategy documents into plain-English summaries. It's your secret weapon for staying on top of client communication without burning all your time on admin. Feed it a meeting transcript and watch it spit out action items.</p>
+            <div class="dept-prompt-example"><strong>Example Prompt</strong>"Based on this meeting summary [paste notes], write a follow-up email to the client recapping decisions made, next steps, and who owns each item."</div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Quick Tips for Better Cowork Results</h2>
+          <div class="analogy-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); display: grid; gap: 16px;">
+            <div class="card card-white">
+              <strong>Be specific</strong>
+              <p style="margin:8px 0 0;">The more context you give, the better the output. Client name, industry, tone, goal — put it all in.</p>
+            </div>
+            <div class="card card-white">
+              <strong>Iterate, don't accept</strong>
+              <p style="margin:8px 0 0;">First draft not quite right? Tell it what to change. "Make it shorter" or "more casual" both work great.</p>
+            </div>
+            <div class="card card-white">
+              <strong>Always review</strong>
+              <p style="margin:8px 0 0;">Cowork is fast and smart, but it doesn't know your client the way you do. Fact-check and personalize before sending.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="interactive-prompt">
+          <div class="interactive-prompt-header">
+            <span class="prompt-emoji">🏢</span>
+            <h3>Exercise: Write a prompt for your department</h3>
+          </div>
+          <div class="interactive-prompt-body">
+            <p class="prompt-instructions">Look at the example prompt for your department above. Now write your own version for a real client or project you're working on. The goal is to make it specific enough that Cowork would actually produce something useful.</p>
+            <div class="prompt-context">
+              <strong>Tips:</strong> Include the client name (or industry), what the output should be, the tone, and any constraints. The more detail, the better the result.
+            </div>
+            <textarea class="prompt-textarea" id="mod2-prompt-input" placeholder="Write your department-specific Cowork prompt here..."></textarea>
+            <button class="prompt-submit-btn" onclick="submitPrompt('mod2-prompt')">Save My Prompt →</button>
+            <div class="prompt-success" id="mod2-prompt-success">✅ <strong>Saved!</strong> Now try pasting this into Claude Cowork and see what you get.</div>
+          </div>
+        </div>
+
+        <div class="module-complete-section">
+          <button class="btn-complete" id="btn-complete" onclick="markComplete('module-2')">
+            Mark Module 2 Complete ✓
+          </button>
+          <div class="complete-message" id="complete-message">
+            You've unlocked Claude's most powerful mode. Up next: Claude Code. 🚀
+          </div>
+          <div class="next-module-link" id="next-module-link">
+            <a href="module-3.html" class="btn-next">Next: Module 3 — Claude Code →</a>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+  <script src="nav.js"></script>
+  <script src="progress.js"></script>
+</body>
+</html>
