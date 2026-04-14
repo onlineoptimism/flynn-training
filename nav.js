@@ -8,49 +8,49 @@
     {
       id: 'index',
       href: 'index.html',
-      number: 'Start',
+      number: 'Mod 1',
       title: 'Course Overview',
       completable: true
     },
     {
       id: 'module-0',
       href: 'module-0.html',
-      number: 'Mod 0',
+      number: 'Mod 2',
       title: 'Welcome to the AI Tools Family',
       completable: true
     },
     {
       id: 'module-1',
       href: 'module-1.html',
-      number: 'Mod 1',
+      number: 'Mod 3',
       title: 'Claude Chat',
       completable: true
     },
     {
       id: 'module-2',
       href: 'module-2.html',
-      number: 'Mod 2',
+      number: 'Mod 4',
       title: 'Meet Claude Cowork',
       completable: true
     },
     {
       id: 'module-3',
       href: 'module-3.html',
-      number: 'Mod 3',
+      number: 'Mod 5',
       title: 'Meet Claude Code',
       completable: true
     },
     {
       id: 'module-3-1',
       href: 'module-3-1.html',
-      number: 'Mod 3.1',
+      number: 'Mod 6',
       title: 'GitHub + Cloudflare Deploy',
       completable: true
     },
     {
       id: 'module-4',
       href: 'module-4.html',
-      number: 'Mod 4',
+      number: 'Mod 7',
       title: 'Final Project',
       completable: true
     }
