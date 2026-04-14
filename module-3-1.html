@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Module 3.1 — OO AI Training</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S&family=Roboto:wght@400;500&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .deploy-steps { list-style: none; padding: 0; margin: 0; counter-reset: deploy; }
+    .deploy-steps li {
+      counter-increment: deploy; padding: 14px 0 14px 52px; position: relative;
+      border-bottom: 2px solid var(--grello);
+    }
+    .deploy-steps li:last-child { border-bottom: none; }
+    .deploy-steps li::before {
+      content: counter(deploy); position: absolute; left: 0; top: 14px;
+      width: 32px; height: 32px; background: var(--bright-green); color: var(--black);
+      font-family: var(--font-heading); font-size: 0.85rem; font-weight: 700;
+      border: 3px solid var(--black); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .deploy-steps li strong { display: block; margin-bottom: 4px; }
+    .code-block {
+      background: #1a1a1a; color: #e8e8e8; font-family: var(--font-heading); font-size: 0.82rem;
+      padding: 12px 16px; border-radius: 4px; border: 3px solid var(--black);
+      margin: 8px 0; overflow-x: auto; line-height: 1.6;
+    }
+    .slack-template {
+      background: var(--grello); border: 4px solid var(--black); border-radius: 6px;
+      box-shadow: -8px 8px 0px var(--black); padding: 20px 24px; margin-top: 14px;
+      font-family: var(--font-body); white-space: pre-line; line-height: 1.8;
+    }
+    .slack-template .copy-btn {
+      display: inline-block; margin-top: 14px; padding: 8px 16px;
+      background: var(--deep-green); color: var(--white); border: 3px solid var(--black);
+      border-radius: 4px; cursor: pointer; font-family: var(--font-heading);
+      font-size: 0.72rem; text-transform: uppercase;
+    }
+    .info-box {
+      background: var(--grello); border-left: 6px solid var(--bright-green);
+      padding: 14px 18px; border-radius: 0 6px 6px 0; margin: 14px 0;
+    }
+  </style>
+</head>
+<body data-module="module-3-1">
+  <button class="nav-toggle" id="nav-toggle">☰</button>
+  <div class="nav-overlay" id="nav-overlay"></div>
+  <div class="page-wrapper">
+    <nav id="main-nav"></nav>
+    <main class="main-content">
+
+      <div class="module-header">
+        <p class="module-eyebrow">Module 3.1</p>
+        <h1>GitHub + Cloudflare Deploy</h1>
+        <p class="subtitle">You built something with Claude Code. Now let's put it on the internet — on your own OO subdomain. This guide walks you through every step, even if you've never touched GitHub before.</p>
+      </div>
+
+      <div class="content-body">
+
+        <div class="section">
+          <h2 class="section-title">3.2 — What is GitHub?</h2>
+          <p>GitHub is where code lives on the internet. Think of it like Google Drive, but specifically for code files. It tracks every change ever made, lets multiple people work on the same project without overwriting each other, and makes it easy to publish things to the web.</p>
+          <p>You don't need to know how to code to use GitHub for deployment. All you need is a free account and the ability to follow steps — which you clearly have, since you're here.</p>
+          <div class="info-box">
+            <strong>OO GitHub Org:</strong> All OO projects live under the <code>onlineoptimism</code> GitHub organization. You'll need to accept your invite before you can push projects there.
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">3.2 — What is Cloudflare Pages?</h2>
+          <p>Cloudflare Pages is a free hosting service that watches your GitHub repo and automatically publishes your site every time you push new code. It's fast, reliable, and handles the technical hosting side so you never have to think about servers.</p>
+          <p>Once connected, your site goes live in under a minute after every update. OO uses Cloudflare Pages for all internal subdomains — including this course right now.</p>
+          <div class="info-box">
+            <strong>Free tier is plenty:</strong> Cloudflare Pages' free plan handles unlimited sites, unlimited bandwidth, and 500 deploys per month. You won't hit those limits.
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">3.3 — Step-by-Step Deployment</h2>
+
+          <ol class="deploy-steps">
+            <li>
+              <strong>Accept your OO GitHub invite</strong>
+              Check your email for an invitation to the <code>onlineoptimism</code> GitHub org. Accept it. If you don't see one, ask in #ai-tools on Slack.
+            </li>
+            <li>
+              <strong>Create a new GitHub repository</strong>
+              Go to github.com, click the + icon, and select "New repository." Name it something like <code>client-projectname</code>. Set it to Public, skip the README checkbox, and click Create.
+            </li>
+            <li>
+              <strong>Build your page with Claude Code</strong>
+              Open Claude Code, point it at your project folder, and ask it to build your page. A simple starting prompt:
+              <div class="code-block">Build a single-page HTML site for [Client Name]. Include a hero, about section, and contact CTA. Brand colors: [hex]. Save as index.html.</div>
+              When Claude is done, you'll have an <code>index.html</code> (and maybe a <code>styles.css</code>) in your folder.
+            </li>
+            <li>
+              <strong>Push your files to GitHub</strong>
+              In Claude Code, ask it to initialize a git repo and push to your new GitHub repo URL:
+              <div class="code-block">Initialize a git repo here, add all files, commit with message "initial build", and push to https://github.com/onlineoptimism/your-repo-name.git</div>
+              Claude will run the git commands for you.
+            </li>
+            <li>
+              <strong>Connect to Cloudflare Pages</strong>
+              Log in at pages.cloudflare.com with your OO Cloudflare account. Click "Create application" then "Connect to Git." Select your GitHub repo, leave all build settings blank (static HTML needs none), and click Deploy.
+            </li>
+            <li>
+              <strong>Add a custom CNAME for the OO subdomain</strong>
+              Once deployed, go to your Cloudflare Pages project settings. Under "Custom domains," add your subdomain (e.g., <code>projectname.onlineoptimism.com</code>). Cloudflare will add the CNAME record automatically if your domain is on Cloudflare DNS — which ours is.
+            </li>
+            <li>
+              <strong>Verify it's live</strong>
+              Visit your subdomain URL in a browser. If it loads, you're done. If not, wait 2 minutes for DNS to propagate and try again. Then post in Slack to share the win. 🎉
+            </li>
+          </ol>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">3.4 — OO Subdomain Convention + Slack Template</h2>
+          <p>All OO-deployed subdomains follow the same naming pattern:</p>
+          <div class="code-block">clientname.onlineoptimism.com<br>projectname-clientname.onlineoptimism.com</div>
+          <p style="margin-top:14px;">Keep names lowercase, hyphenated, and short. No underscores. If you're not sure what to name it, ask your team lead before deploying.</p>
+          <p style="margin-top:18px;">Once your site is live, post in <strong>#ai-tools</strong> on Slack using this template:</p>
+          <div class="slack-template" id="slack-template-text">🚀 Just deployed [project name] for [client name]!
+
+Live at: [your-subdomain].onlineoptimism.com
+Built with: Claude Code + Cloudflare Pages
+Repo: github.com/onlineoptimism/[repo-name]
+
+[Optional: one sentence about what it is or what it does]</div>
+          <button class="slack-template copy-btn" onclick="copyToClipboard(document.getElementById('slack-template-text').textContent, this)">📋 Copy Slack Template</button>
+        </div>
+
+        <div class="module-complete-section">
+          <button class="btn-complete" id="btn-complete" onclick="markComplete('module-3-1')">
+            Mark Module 3.1 Complete ✓
+          </button>
+          <div class="complete-message" id="complete-message">
+            You can now build and deploy things to the internet. That's genuinely impressive. One module to go! 🏁
+          </div>
+          <div class="next-module-link" id="next-module-link">
+            <a href="module-4.html" class="btn-next">Next: Module 4 — Final Project →</a>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+  <script src="nav.js"></script>
+  <script src="progress.js"></script>
+</body>
+</html>
