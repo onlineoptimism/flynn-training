@@ -76,8 +76,12 @@
               Go to <a href="https://github.com/online-optimism" target="_blank" rel="noopener">github.com/online-optimism</a> and follow the on-screen prompts to accept your org invite. No invite yet? Ask in <a href="https://slack.com/app_redirect?channel=C04HPR9AMQX" target="_blank" rel="noopener"><strong>#ai-and-automations</strong></a> on Slack.
             </li>
             <li>
+              <strong>Create your repo — and check "Add a README"</strong>
+              When creating a new repo on GitHub, check the <strong>Add a README file</strong> box before clicking Create. This automatically creates a <code>main</code> branch, which is what Cloudflare Pages expects to watch. If you skip this, your repo starts empty with no branch and Cloudflare won't know what to deploy.
+            </li>
+            <li>
               <strong>Configure your new repository settings</strong>
-              After creating your repo, click <strong>Settings</strong> at the top and make these changes:
+              Click <strong>Settings</strong> at the top of your repo and make these changes:
               <ul class="sub-steps">
                 <li>Under <strong>Pull Requests</strong>: check "Allow Auto-Merge" and "Automatically delete head branches."</li>
                 <li>Under <strong>Issues</strong>: check "Auto-close issues with merged linked pull requests."</li>
@@ -88,6 +92,10 @@
               In your repo settings, find the Claude app integration and install it. This lets Claude Code push to your repo directly.
             </li>
           </ol>
+
+          <div class="info-box">
+            <strong>The right workflow:</strong> Cloudflare watches <code>main</code> and redeploys every time it gets new commits. Do your work on a separate branch, then merge a pull request into <code>main</code> when you're ready to go live. This way you never accidentally publish something half-finished.
+          </div>
         </div>
 
         <div class="section">
@@ -108,8 +116,12 @@
               Click <strong>Continue with GitHub</strong>, then select your repository and click <strong>Next</strong>.
             </li>
             <li>
+              <strong>Confirm the branch is <code>main</code></strong>
+              On the settings screen, check that the <strong>Production Branch</strong> field says <code>main</code>. If it shows a different branch name (e.g. a feature branch), change it to <code>main</code> now — this is the branch Cloudflare will watch and redeploy from on every merge.
+            </li>
+            <li>
               <strong>Deploy</strong>
-              Leave all settings as-is on the next screen and click <strong>Deploy</strong>. Wait about a minute while it builds. If it fails, copy the error into Claude Code and do what it says.
+              Leave all other settings as-is and click <strong>Deploy</strong>. Wait about a minute while it builds. If it fails, copy the error into Claude Code and do what it says.
             </li>
             <li>
               <strong>Add your custom subdomain</strong>
